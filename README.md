@@ -699,3 +699,40 @@ sms_template_documents  -->  sms_templates : sms_template_id
 whatsapp_template_documents  -->  document_template : document_template_id
 whatsapp_template_documents  -->  whats_app_template : whatsapp_template_id
 ```
+## 📸 Application Screenshots
+
+### Communication Channels
+
+Shows the different communication channels supported by NotifyHub.
+
+![Communication Channels](images/channels.png)
+
+### Email Communication
+
+Example of an email successfully received by the customer.
+
+![Email Received](images/email-received.png)
+
+### WhatsApp Communication
+
+Example of a WhatsApp communication sent through NotifyHub.
+
+![WhatsApp Message](images/whatsapp-message.png)
+
+### Dead Letter Queue — Information
+
+Displays information related to failed communication requests.
+
+![DLQ Information](images/dlq-information.png)
+
+### Dead Letter Queue — WhatsApp Errors
+
+Shows WhatsApp communication failures captured in the Dead Letter Queue.
+
+![DLQ WhatsApp Errors](images/dlq-whatsapp-errors.png)
+
+### Rate Limiter
+
+Demonstrates the API rate-limiting mechanism implemented in NotifyHub.
+
+![Rate Limiter](images/rate-limiter.png)

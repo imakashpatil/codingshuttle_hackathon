@@ -1,0 +1,195 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Layers, Plus, Mail, MessageSquare, Landmark, Send, Info, Trash2, RefreshCw, Copy } from 'lucide-react';
+import axios from 'axios';
+import API_ENDPOINTS from '../config/api';
+import { useToast, useConfirm } from '../components/Toast';
+
+const CommDefinitions = () => {
+  const navigate = useNavigate();
+  const [commDefinitions, setCommDefinitions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { toastSuccess, toastError } = useToast();
+  const { confirm } = useConfirm();
+
+  const fetchDefinitions = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get(API_ENDPOINTS.COMMUNICATION_DEFINITIONS);
+      setCommDefinitions(res.data || []);
+    } catch (err) {
+      console.error("Failed to fetch communication definitions.", err);
+      setCommDefinitions([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchDefinitions();
+  }, []);
+
+  const handleDelete = async (e, id, name) => {
+    e.stopPropagation();
+    const ok = await confirm({
+      title: `Delete Definition`,
+      message: `"${name}" will be permanently removed. All channel mappings in this definition will be lost.`,
+      variant: 'danger',
+      confirmText: 'Delete',
+    });
+    if (!ok) return;
+    try {
+      await axios.delete(`${API_ENDPOINTS.COMMUNICATION_DEFINITIONS}/${id}`);
+      toastSuccess('Definition Deleted', `"${name}" was removed successfully.`);
+      fetchDefinitions();
+    } catch (err) {
+      const msg = err.response?.data?.message || err.message;
+      toastError('Delete Failed', msg);
+    }
+  };
+
+  const handleCopyCode = (e, code) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(code);
+    toastSuccess('Copied to Clipboard', `Code "${code}" copied successfully.`);
+  };
+
+  const getChannelIcon = (channel) => {
+    if (channel === 'WHATSAPP') return <MessageSquare className="h-3.5 w-3.5 text-emerald-500" />;
+    if (channel === 'EMAIL') return <Mail className="h-3.5 w-3.5 text-blue-500" />;
+    if (channel === 'POSTAL') return <Landmark className="h-3.5 w-3.5 text-amber-500" />;
+    if (channel === 'SMS') return <Send className="h-3.5 w-3.5 text-purple-500" />;
+    return <Layers className="h-3.5 w-3.5 text-slate-500" />;
+  };
+
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">Communication Definitions</h1>
+          <p className="text-muted-foreground mt-1">Consolidate multiple delivery channel templates into single trigger layouts.</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={fetchDefinitions}
+            disabled={loading}
+            className="flex items-center gap-1.5 px-3 py-2 border border-border hover:bg-muted text-foreground font-semibold rounded-lg text-sm cursor-pointer transition-all disabled:opacity-50"
+          >
+            <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+          </button>
+          <button 
+            onClick={() => navigate('/comm-definitions/new')}
+            className="flex items-center gap-2 px-3.5 py-2 bg-primary text-primary-foreground font-semibold rounded-lg text-sm hover:bg-primary/95 transition-all duration-200 cursor-pointer shadow-sm"
+          >
+            <Plus className="h-4 w-4" />
+            <span>New Definition</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-2.5 p-3.5 bg-accent/20 border border-border/40 rounded-xl text-xs text-muted-foreground">
+        <Info className="h-4 w-4 text-primary shrink-0" />
+        <div>
+          A <strong>Communication Definition</strong> maps a unified transaction code (e.g. trigger upstream) to several active channels. The payload schema is generated automatically by merging child template schemas.
+        </div>
+      </div>
+
+      {/* Render definitions list inside structured container card */}
+      <div className="bg-white dark:bg-card border border-border/60 p-6 rounded-2xl">
+        <div className="grid gap-4 md:grid-cols-2">
+          {commDefinitions.length === 0 && !loading ? (
+            <div className="p-8 text-center text-xs text-muted-foreground italic border border-border border-dashed rounded-xl col-span-full">
+              No communication definitions defined. Click "New Definition" to create one.
+            </div>
+          ) : (
+            commDefinitions.map((def) => {
+              const enabledChannels = (def.channels || []).filter(c => c.enabled);
+              return (
+                <div 
+                  key={def.id}
+                  onClick={() => navigate(`/comm-definitions/edit/${def.id}`)}
+                  className="p-5 bg-card border border-border/80 hover:border-primary/40 rounded-xl space-y-4 cursor-pointer transition-all duration-200 relative group"
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-foreground text-sm leading-snug">{def.name}</h3>
+                      <div className="flex items-center gap-1.5 mt-1.5">
+                        <code className="text-xs font-mono text-muted-foreground bg-muted px-1.5 py-0.5 rounded">
+                          {def.communicationCode}
+                        </code>
+                        <button
+                          onClick={(e) => handleCopyCode(e, def.communicationCode)}
+                          className="p-1 text-muted-foreground hover:text-primary rounded hover:bg-muted transition-colors cursor-pointer"
+                          title="Copy definition code"
+                        >
+                          <Copy className="h-3 w-3" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 border rounded shrink-0
+                        ${def.active !== false
+                          ? 'border-primary/20 bg-primary/10 text-primary'
+                          : 'border-red-500/20 bg-red-500/10 text-red-500'
+                        }
+                      `}>
+                        {def.active !== false ? 'Active' : 'Inactive'}
+                      </span>
+                      <button
+                        onClick={(e) => handleDelete(e, def.id, def.name)}
+                        className="p-1.5 hover:bg-red-500/10 hover:text-red-500 text-muted-foreground rounded transition-all cursor-pointer"
+                        title="Delete definition"
+                      >
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {def.description && (
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-1">{def.description}</p>
+                  )}
+
+                  {/* Mini visual flow diagram */}
+                  <div className="flex items-center gap-3 p-3 bg-muted/20 border border-border/40 rounded-lg text-xs">
+                    {/* Trigger side */}
+                    <div className="flex flex-col items-center gap-0.5 shrink-0 bg-background border border-border px-2 py-1.5 rounded">
+                      <span className="text-[8px] font-extrabold text-slate-500 uppercase tracking-widest leading-none">Trigger</span>
+                      <span className="font-mono text-[9px] text-primary leading-none font-bold">UPSTREAM</span>
+                    </div>
+
+                    {/* Connection line/arrow */}
+                    <div className="flex-1 flex items-center justify-center relative min-w-[30px]">
+                      <div className="w-full h-px border-t border-dashed border-border" />
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary" />
+                    </div>
+
+                    {/* Channel cluster */}
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {enabledChannels.map((ch, idx) => (
+                        <div 
+                          key={idx} 
+                          title={`${ch.channel}: ${ch.templateName || ch.templateCode || ch.templateId}`}
+                          className="flex items-center justify-center w-7 h-7 rounded-full border border-border bg-background hover:border-primary/40 transition-colors"
+                        >
+                          {getChannelIcon(ch.channel)}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center text-[10px] text-muted-foreground pt-1.5 border-t border-border/40">
+                    <span className="font-semibold text-slate-500">
+                      {enabledChannels.length} Delivery Channels Enabled
+                    </span>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CommDefinitions;

@@ -1,0 +1,336 @@
+<communications>
+    <communication>
+        <customerId>CUSTOMER-001</customerId>
+        <communicationData>
+            <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+
+            <invoice>
+                <customerId>CUSTOMER-001</customerId>
+
+                <customer>
+                    <name>Akash Patil</name>
+                    <customerCode>CUST-001</customerCode>
+                    <address>Sector 45, Noida, Uttar Pradesh</address>
+                    <mobileNumber>+91 9876500001</mobileNumber>
+                    <email>rahul.sharma@example.com</email>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-001</invoiceNumber>
+                <invoiceDate>2026-08-17</invoiceDate>
+                <dueDate>2026-08-30</dueDate>
+
+                <policyNumber>POL-2026-001</policyNumber>
+                <insurancePlan>Health Plus Gold</insurancePlan>
+                <total>20240</total>
+
+                <insuranceCompanyName>InsureCare Insurance Ltd.</insuranceCompanyName>
+                <insuranceCompanyPhone>+91 1800 123 4567</insuranceCompanyPhone>
+                <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+                <insuranceCompanyAddress>125 Financial District, Mumbai, Maharashtra - 400001</insuranceCompanyAddress>
+                <insuranceCompanyEmail>support@insurecare.in</insuranceCompanyEmail>
+                <insuranceCompanyWebsite>www.insurecare.in</insuranceCompanyWebsite>
+                <helpline>24/7 Customer Support</helpline>
+
+                <coverageType>Individual</coverageType>
+                <policyStartDate>2026-04-01</policyStartDate>
+                <policyEndDate>2027-03-31</policyEndDate>
+
+                <items>
+                    <item>
+                        <description>Annual Health Insurance Premium</description>
+                        <quantity>1</quantity>
+                        <unitPrice>20240</unitPrice>
+                        <amount>20240</amount>
+                    </item>
+                </items>
+
+                <subtotal>20240</subtotal>
+                <taxRate>0</taxRate>
+                <taxAmount>0</taxAmount>
+                <discount>0</discount>
+                <authorizedSignature>Ananya Mehta</authorizedSignature>
+            </invoice>
+        </communicationData>
+    </communication>
+
+
+    <communication>
+        <customerId>CUSTOMER-002</customerId>
+
+        <communicationData>
+            <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+
+            <invoice>
+                <customerId>CUSTOMER-002</customerId>
+
+                <customer>
+                    <name>Priya Verma</name>
+                    <customerCode>CUST-002</customerCode>
+                    <address>Andheri West, Mumbai, Maharashtra</address>
+                    <mobileNumber>+91 9876500002</mobileNumber>
+                    <email>priya.verma@example.com</email>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-002</invoiceNumber>
+                <invoiceDate>2026-08-17</invoiceDate>
+                <dueDate>2026-08-31</dueDate>
+
+                <policyNumber>POL-2026-002</policyNumber>
+                <insurancePlan>Family Care Plus</insurancePlan>
+                <total>28500</total>
+
+                <insuranceCompanyName>InsureCare Insurance Ltd.</insuranceCompanyName>
+                <insuranceCompanyPhone>+91 1800 123 4567</insuranceCompanyPhone>
+                <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+                <insuranceCompanyAddress>125 Financial District, Mumbai, Maharashtra - 400001</insuranceCompanyAddress>
+                <insuranceCompanyEmail>support@insurecare.in</insuranceCompanyEmail>
+                <insuranceCompanyWebsite>www.insurecare.in</insuranceCompanyWebsite>
+                <helpline>24/7 Customer Support</helpline>
+
+                <coverageType>Family</coverageType>
+                <policyStartDate>2026-04-01</policyStartDate>
+                <policyEndDate>2027-03-31</policyEndDate>
+
+                <items>
+                    <item>
+                        <description>Annual Health Insurance Premium</description>
+                        <quantity>1</quantity>
+                        <unitPrice>28500</unitPrice>
+                        <amount>28500</amount>
+                    </item>
+                </items>
+
+                <subtotal>28500</subtotal>
+                <taxRate>0</taxRate>
+                <taxAmount>0</taxAmount>
+                <discount>0</discount>
+                <authorizedSignature>Ananya Mehta</authorizedSignature>
+            </invoice>
+        </communicationData>
+    </communication>
+
+
+    <communication>
+        <customerId>CUSTOMER-003</customerId>
+
+        <communicationData>
+            <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+
+            <invoice>
+                <customerId>CUSTOMER-003</customerId>
+
+                <customer>
+                    <name>Amit Patel</name>
+                    <customerCode>CUST-003</customerCode>
+                    <address>Satellite, Ahmedabad, Gujarat</address>
+                    <mobileNumber>+91 9876500003</mobileNumber>
+                    <email>amit.patel@example.com</email>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-003</invoiceNumber>
+                <invoiceDate>2026-08-17</invoiceDate>
+                <dueDate>2026-09-01</dueDate>
+
+                <policyNumber>POL-2026-003</policyNumber>
+                <insurancePlan>Health Secure</insurancePlan>
+                <total>16400</total>
+
+                <insuranceCompanyName>InsureCare Insurance Ltd.</insuranceCompanyName>
+                <insuranceCompanyPhone>+91 1800 123 4567</insuranceCompanyPhone>
+                <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+                <insuranceCompanyAddress>125 Financial District, Mumbai, Maharashtra - 400001</insuranceCompanyAddress>
+                <insuranceCompanyEmail>support@insurecare.in</insuranceCompanyEmail>
+                <insuranceCompanyWebsite>www.insurecare.in</insuranceCompanyWebsite>
+                <helpline>24/7 Customer Support</helpline>
+
+                <coverageType>Individual</coverageType>
+                <policyStartDate>2026-04-01</policyStartDate>
+                <policyEndDate>2027-03-31</policyEndDate>
+
+                <items>
+                    <item>
+                        <description>Annual Health Insurance Premium</description>
+                        <quantity>1</quantity>
+                        <unitPrice>16400</unitPrice>
+                        <amount>16400</amount>
+                    </item>
+                </items>
+
+                <subtotal>16400</subtotal>
+                <taxRate>0</taxRate>
+                <taxAmount>0</taxAmount>
+                <discount>0</discount>
+                <authorizedSignature>Ananya Mehta</authorizedSignature>
+            </invoice>
+        </communicationData>
+    </communication>
+
+
+    <communication>
+        <customerId>CUSTOMER-004</customerId>
+
+        <communicationData>
+            <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+
+            <invoice>
+                <customerId>CUSTOMER-004</customerId>
+
+                <customer>
+                    <name>Sneha Iyer</name>
+                    <customerCode>CUST-004</customerCode>
+                    <address>Indiranagar, Bengaluru, Karnataka</address>
+                    <mobileNumber>+91 9876500004</mobileNumber>
+                    <email>sneha.iyer@example.com</email>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-004</invoiceNumber>
+                <invoiceDate>2026-08-17</invoiceDate>
+                <dueDate>2026-09-02</dueDate>
+
+                <policyNumber>POL-2026-004</policyNumber>
+                <insurancePlan>Health Plus Premium</insurancePlan>
+                <total>32750</total>
+
+                <insuranceCompanyName>InsureCare Insurance Ltd.</insuranceCompanyName>
+                <insuranceCompanyPhone>+91 1800 123 4567</insuranceCompanyPhone>
+                <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+                <insuranceCompanyAddress>125 Financial District, Mumbai, Maharashtra - 400001</insuranceCompanyAddress>
+                <insuranceCompanyEmail>support@insurecare.in</insuranceCompanyEmail>
+                <insuranceCompanyWebsite>www.insurecare.in</insuranceCompanyWebsite>
+                <helpline>24/7 Customer Support</helpline>
+
+                <coverageType>Family</coverageType>
+                <policyStartDate>2026-04-01</policyStartDate>
+                <policyEndDate>2027-03-31</policyEndDate>
+
+                <items>
+                    <item>
+                        <description>Annual Health Insurance Premium</description>
+                        <quantity>1</quantity>
+                        <unitPrice>32750</unitPrice>
+                        <amount>32750</amount>
+                    </item>
+                </items>
+
+                <subtotal>32750</subtotal>
+                <taxRate>0</taxRate>
+                <taxAmount>0</taxAmount>
+                <discount>0</discount>
+                <authorizedSignature>Ananya Mehta</authorizedSignature>
+            </invoice>
+        </communicationData>
+    </communication>
+
+
+    <communication>
+        <customerId>CUSTOMER-005</customerId>
+
+        <communicationData>
+            <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+
+            <invoice>
+                <customerId>CUSTOMER-005</customerId>
+
+                <customer>
+                    <name>Vikram Singh</name>
+                    <customerCode>CUST-005</customerCode>
+                    <address>Gomti Nagar, Lucknow, Uttar Pradesh</address>
+                    <mobileNumber>+91 9876500005</mobileNumber>
+                    <email>vikram.singh@example.com</email>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-005</invoiceNumber>
+                <invoiceDate>2026-08-17</invoiceDate>
+                <dueDate>2026-09-03</dueDate>
+
+                <policyNumber>POL-2026-005</policyNumber>
+                <insurancePlan>Care Advantage</insurancePlan>
+                <total>21900</total>
+
+                <insuranceCompanyName>InsureCare Insurance Ltd.</insuranceCompanyName>
+                <insuranceCompanyPhone>+91 1800 123 4567</insuranceCompanyPhone>
+                <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+                <insuranceCompanyAddress>125 Financial District, Mumbai, Maharashtra - 400001</insuranceCompanyAddress>
+                <insuranceCompanyEmail>support@insurecare.in</insuranceCompanyEmail>
+                <insuranceCompanyWebsite>www.insurecare.in</insuranceCompanyWebsite>
+                <helpline>24/7 Customer Support</helpline>
+
+                <coverageType>Individual</coverageType>
+                <policyStartDate>2026-04-01</policyStartDate>
+                <policyEndDate>2027-03-31</policyEndDate>
+
+                <items>
+                    <item>
+                        <description>Annual Health Insurance Premium</description>
+                        <quantity>1</quantity>
+                        <unitPrice>21900</unitPrice>
+                        <amount>21900</amount>
+                    </item>
+                </items>
+
+                <subtotal>21900</subtotal>
+                <taxRate>0</taxRate>
+                <taxAmount>0</taxAmount>
+                <discount>0</discount>
+                <authorizedSignature>Ananya Mehta</authorizedSignature>
+            </invoice>
+        </communicationData>
+    </communication>
+
+
+    <communication>
+        <customerId>CUSTOMER-006</customerId>
+
+        <communicationData>
+            <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+
+            <invoice>
+                <customerId>CUSTOMER-006</customerId>
+
+                <customer>
+                    <name>Neha Deshmukh</name>
+                    <customerCode>CUST-006</customerCode>
+                    <address>Kothrud, Pune, Maharashtra</address>
+                    <mobileNumber>+91 9876500006</mobileNumber>
+                    <email>neha.deshmukh@example.com</email>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-006</invoiceNumber>
+                <invoiceDate>2026-08-17</invoiceDate>
+                <dueDate>2026-09-04</dueDate>
+
+                <policyNumber>POL-2026-006</policyNumber>
+                <insurancePlan>Family Health Gold</insurancePlan>
+                <total>30100</total>
+
+                <insuranceCompanyName>InsureCare Insurance Ltd.</insuranceCompanyName>
+                <insuranceCompanyPhone>+91 1800 123 4567</insuranceCompanyPhone>
+                <communicationDefinitionCode>COMM_DEF_DEMO_HC</communicationDefinitionCode>
+                <insuranceCompanyAddress>125 Financial District, Mumbai, Maharashtra - 400001</insuranceCompanyAddress>
+                <insuranceCompanyEmail>support@insurecare.in</insuranceCompanyEmail>
+                <insuranceCompanyWebsite>www.insurecare.in</insuranceCompanyWebsite>
+                <helpline>24/7 Customer Support</helpline>
+
+                <coverageType>Family</coverageType>
+                <policyStartDate>2026-04-01</policyStartDate>
+                <policyEndDate>2027-03-31</policyEndDate>
+
+                <items>
+                    <item>
+                        <description>Annual Health Insurance Premium</description>
+                        <quantity>1</quantity>
+                        <unitPrice>30100</unitPrice>
+                        <amount>30100</amount>
+                    </item>
+                </items>
+
+                <subtotal>30100</subtotal>
+                <taxRate>0</taxRate>
+                <taxAmount>0</taxAmount>
+                <discount>0</discount>
+                <authorizedSignature>Ananya Mehta</authorizedSignature>
+            </invoice>
+        </communicationData>
+    </communication>
+
+</communications>

@@ -1,0 +1,104 @@
+spring doc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 8000
+
+spring:
+  application:
+    name: notifyhub
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    url: jdbc:postgresql://localhost:5433/core_db
+    username: akash
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:batch/schema-postgresql.sql
+
+  mail:
+    host: smtp.hostinger.com
+    port: 587
+    username: communication@akashpatil.dev
+    password: Communication@8293
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable.idempotence: true
+        retries: 3
+        spring.json.add.type.headers: false
+        max.in.flight.requests.per.connection: 1
+    consumer:
+      group-id: communication-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
+
+file:
+  storage:
+    base-path: ../uploaded-files
+    pdf-directory: ../uploaded-files/documents
+
+security:
+  jwt:
+    secret:
+      access-token: CwGiX8rJ+xQsl4kGN/4/UT9wNmbQox8fdllP7s+J03Y=
+      refresh-token: EZdnwHE59dCKiNRd5To5klzk929QkB9OohNAwRVYNl4=
+    expiration:
+      access-token:
+        minutes: 60
+      refresh-token:
+        days: 90
+
+app:
+  kafka:
+    topics:
+      communication-created: communication.created
+      communication-status: communication.status
+  redis:
+    key-prefix: "notifyhub:template:"
+    ttl-seconds: 3600
+  rate-limit:
+    requests: 1
+    seconds: 5
+
+zavu:
+  url: "https://api.zavu.dev/v1/messages"
+  api-key: "zv_test_aae992acd240344fcade0e963316491149ef895b3c3aa749"
+  sender: "kd75b402h2cvxzecgy59yztfv58c1qwp"
+  server-url: "http:localhost:8000"
+
+sms:
+  api-key: ""
+  provider-url: ""
+

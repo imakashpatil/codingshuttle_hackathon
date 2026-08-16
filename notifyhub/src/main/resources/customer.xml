@@ -1,0 +1,93 @@
+<customers>
+
+    <!-- CUSTOMER 001 - VALID -->
+    <customer>
+        <customerCode>CUSTOMER-001</customerCode>
+        <name>Akash Patil</name>
+        <email>imakashpatil96@gmail.com</email>
+        <mobileNumber>8888366263</mobileNumber>
+        <preferredLanguage>ENGLISH</preferredLanguage>
+        <preferredChannels>EMAIL,SMS</preferredChannels>
+        <city>Pune</city>
+        <postalCode>411001</postalCode>
+        <addressLine1>MG Road</addressLine1>
+        <addressLine2>Near Central Mall</addressLine2>
+        <addressLine3>Maharashtra</addressLine3>
+    </customer>
+
+    <!-- CUSTOMER 002 - VALID -->
+    <customer>
+        <customerCode>CUSTOMER-002</customerCode>
+        <name>Asmita Patil</name>
+        <email>imakashpatil.dev@gmail.com</email>
+        <mobileNumber>8888366264</mobileNumber>
+        <preferredLanguage>ENGLISH</preferredLanguage>
+        <preferredChannels>EMAIL,SMS</preferredChannels>
+        <city>Pune</city>
+        <postalCode>411002</postalCode>
+        <addressLine1>FC Road</addressLine1>
+        <addressLine2>Near Deccan Gymkhana</addressLine2>
+        <addressLine3>Maharashtra</addressLine3>
+    </customer>
+
+    <!-- CUSTOMER 003 - VALID -->
+    <customer>
+        <customerCode>CUSTOMER-003</customerCode>
+        <name>Rahul Sharma</name>
+        <email>rahul.sharma@example.com</email>
+        <mobileNumber>8888366265</mobileNumber>
+        <preferredLanguage>ENGLISH</preferredLanguage>
+        <preferredChannels>EMAIL,SMS</preferredChannels>
+        <city>Mumbai</city>
+        <postalCode>400001</postalCode>
+        <addressLine1>Marine Drive</addressLine1>
+        <addressLine2>Near Churchgate</addressLine2>
+        <addressLine3>Maharashtra</addressLine3>
+    </customer>
+
+    <!-- CUSTOMER 004 - VALID -->
+    <customer>
+        <customerCode>CUSTOMER-004</customerCode>
+        <name>Priya Deshmukh</name>
+        <email>priya.deshmukh@example.com</email>
+        <mobileNumber>8888366266</mobileNumber>
+        <preferredLanguage>ENGLISH</preferredLanguage>
+        <preferredChannels>EMAIL,SMS</preferredChannels>
+        <city>Nashik</city>
+        <postalCode>422001</postalCode>
+        <addressLine1>College Road</addressLine1>
+        <addressLine2>Near City Centre</addressLine2>
+        <addressLine3>Maharashtra</addressLine3>
+    </customer>
+
+    <!-- CUSTOMER 005 - INVALID CHANNEL -->
+    <customer>
+        <customerCode>CUSTOMER-005</customerCode>
+        <name>Vikram Joshi</name>
+        <email>vikram.joshi@example.com</email>
+        <mobileNumber>8888366267</mobileNumber>
+        <preferredLanguage>ENGLISH</preferredLanguage>
+        <preferredChannels>PUSH</preferredChannels>
+        <city>Nagpur</city>
+        <postalCode>440001</postalCode>
+        <addressLine1>Sadar</addressLine1>
+        <addressLine2>Near Liberty Cinema</addressLine2>
+        <addressLine3>Maharashtra</addressLine3>
+    </customer>
+
+    <!-- CUSTOMER 006 - INVALID CHANNEL -->
+    <customer>
+        <customerCode>CUSTOMER-006</customerCode>
+        <name>Neha Kulkarni</name>
+        <email>neha.kulkarni@example.com</email>
+        <mobileNumber>8888366268</mobileNumber>
+        <preferredLanguage>KANNADA</preferredLanguage>
+        <preferredChannels>EMAIL</preferredChannels>
+        <city>Aurangabad</city>
+        <postalCode>431001</postalCode>
+        <addressLine1>Cannaught Place</addressLine1>
+        <addressLine2>Near CIDCO</addressLine2>
+        <addressLine3>Maharashtra</addressLine3>
+    </customer>
+
+</customers>

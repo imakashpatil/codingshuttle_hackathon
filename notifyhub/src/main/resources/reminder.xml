@@ -1,0 +1,62 @@
+<communications>
+    <communication>
+        <customerId>CUSTOMER-002</customerId>
+        <communicationData>
+
+            <communicationDefinitionCode>
+                PAY_REMINDER_COMM_DEF
+            </communicationDefinitionCode>
+
+            <invoice>
+
+                <customerId>CUSTOMER-002</customerId>
+
+                <customer>
+                    <name>Rahul Sharma</name>
+                    <customerCode>CUSTOMER-002</customerCode>
+                    <email>imakashpatil.dev@gmail.com</email>
+                    <mobileNumber>8888366263</mobileNumber>
+                </customer>
+
+                <invoiceNumber>INS-INV-2026-001</invoiceNumber>
+
+                <invoiceDate>2026-08-17</invoiceDate>
+
+                <dueDate>2026-08-30</dueDate>
+
+                <policyNumber>POL-2026-001</policyNumber>
+
+                <insurancePlan>Health Plus Gold</insurancePlan>
+
+                <amountDue>20240</amountDue>
+
+                <insuranceCompanyName>
+                    InsureCare Insurance Ltd.
+                </insuranceCompanyName>
+
+                <insuranceCompanyAddress>
+                    125 Financial District, Mumbai, Maharashtra - 400001
+                </insuranceCompanyAddress>
+
+                <insuranceCompanyPhone>
+                    +91 1800 123 4567
+                </insuranceCompanyPhone>
+
+                <insuranceCompanyEmail>
+                    support@insurecare.in
+                </insuranceCompanyEmail>
+
+                <insuranceCompanyWebsite>
+                    www.insurecare.in
+                </insuranceCompanyWebsite>
+
+                <helpline>
+                    24/7 Customer Support
+                </helpline>
+
+            </invoice>
+
+        </communicationData>
+
+    </communication>
+</communications>

@@ -1,0 +1,51 @@
+# =========================
+# Frontend
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/out/
+
+# Environment files
+frontend/.env
+frontend/.env.local
+frontend/.env.*
+
+
+# =========================
+# Spring Boot / Java
+# =========================
+notifyhub/target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+
+# =========================
+# Uploaded files
+# =========================
+uploaded-files/*
+
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+*.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

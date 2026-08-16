@@ -699,10 +699,3 @@ sms_template_documents  -->  sms_templates : sms_template_id
 whatsapp_template_documents  -->  document_template : document_template_id
 whatsapp_template_documents  -->  whats_app_template : whatsapp_template_id
 ```
-
-**Reading the schema alongside the diagrams above:**
-
-- `communication_requests` is the row created by ingestion (§3) and paired with an `outbox_events` row in the same transaction (§4).
-- `communication_definitions`, `communication_definition_channels`, and `communication_definition_payloads` are the tables backing the definition/template hierarchy in §5 — one definition, many enabled channels, one XML payload schema.
-- `communications` is the per-channel dispatch record created during consumer processing (§6); `retry_count` and `delivery_attempts` back the retry/DLQ logic — three attempts before a record is parked.
-- The `*_template_documents` join tables are exactly the "optional / always references a document template" relationships shown in §5.

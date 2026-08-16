@@ -711,28 +711,28 @@ Shows the different communication channels supported by NotifyHub.
 
 Example of an email successfully received by the customer.
 
-![Email Received](images/email received.png)
+![Email Received](images/email_received.png)
 
 ### WhatsApp Communication
 
 Example of a WhatsApp communication sent through NotifyHub.
 
-![WhatsApp Message]("images/whatsapp message.png")
+![WhatsApp Message]("images/whatsapp_message.png")
 
 ### Dead Letter Queue — Information
 
 Displays information related to failed communication requests.
 
-![DLQ Information]("images/DLQ information.png")
+![DLQ Information]("images/DLQ_information.png")
 
 ### Dead Letter Queue — WhatsApp Errors
 
 Shows WhatsApp communication failures captured in the Dead Letter Queue.
 
-![DLQ WhatsApp Errors]("images/DLQ for whatsapp errors.png")
+![DLQ WhatsApp Errors]("images/DLQ_for_whatsapp_errors.png")
 
 ### Rate Limiter
 
 Demonstrates the API rate-limiting mechanism implemented in NotifyHub.
 
-![Rate Limiter]("images/rate limiter.png")
+![Rate Limiter]("images/rate_limiter.png")

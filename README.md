@@ -707,19 +707,19 @@ The following screens demonstrate the communication and operational capabilities
 
 The communication channel dashboard provides visibility into the channels configured and used by NotifyHub, including Email, WhatsApp, SMS, and Postal communication.
 
-![Communication Channels](images/channels.png)
+![Communication Channels](scrennshots/channels.png)
 
 ## Email Communication
 
 Example of an email communication successfully generated and delivered to the customer.
 
-![Email Communication](images/email_received.png)
+![Email Communication](scrennshots/email_received.png)
 
 ## WhatsApp Communication
 
 Example of a WhatsApp communication successfully sent through NotifyHub.
 
-![WhatsApp Communication](images/whatsapp_message.png)
+![WhatsApp Communication](scrennshots/whatsapp_message.png)
 
 ## Dead Letter Queue
 
@@ -729,16 +729,16 @@ When a communication cannot be successfully delivered after the configured retry
 
 Displays information related to failed communication requests.
 
-![Dead Letter Queue Information](images/DLQ_information.png)
+![Dead Letter Queue Information](scrennshots/DLQ_information.png)
 
 ### DLQ — WhatsApp Failures
 
 Shows WhatsApp communication failures captured in the Dead Letter Queue.
 
-![WhatsApp DLQ Errors](images/DLQ_for_whatsapp_errors.png)
+![WhatsApp DLQ Errors](scrennshots/DLQ_for_whatsapp_errors.png)
 
 ## API Rate Limiting
 
 NotifyHub implements API rate limiting to control the number of requests accepted from an authenticated client within a configured time window.
 
-![API Rate Limiting](images/rate_limiter.png)
+![API Rate Limiting](scrennshots/rate_limiter.png)

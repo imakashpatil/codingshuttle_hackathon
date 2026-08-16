@@ -87,53 +87,36 @@ Files are uploaded into folders via the file management APIs, picked up by a bat
 
 ```mermaid
 flowchart TD
-    FM[File Manager<br/>file already placed] --> JL{Job Launcher<br/>detect import type}
-
-    JL -->|Customer import| CR[Item Reader<br/>reads customer XML]
-    JL -->|Communication import| MR[Item Reader<br/>reads communication XML]
-
-    subgraph CUST[Customer batch]
-        CR --> CP[Item Processor<br/>validate customer record]
-        CP -->|valid| CW[Item Writer<br/>write customer to DB]
-        CP -->|invalid, throws error| CSL[Skip Listener]
-        CSL --> CFW[Failed Item Writer]     
-    end
-    CFW --> CCSV[(customer_failures.csv<br/>failure folder)]
-
-    subgraph COMM[Communication batch]
-        MR --> MP[Item Processor<br/>validate communication record]
-        MP -->|valid| MW[Item Writer<br/>write communication request to DB]
-        MP -->|valid| MX[Outbox Event </br>for Publisher]
-        MP -->|invalid, throws error| MSL[Skip Listener]
-        MSL --> MFW[Failed Item Writer]
-        
+    subgraph API[File management APIs]
+        CFA["POST :folders / create folder"]:::api
+        UFA["POST : folders/{id}/files<br/>upload file"]:::api
     end
 
-    MFW --> MCSV[(communication_failures.csv<br/>failure folder)]
+    CFA --> FS
+    UFA --> IF
 
-    %% Main flow
-    style FM fill:#E8F1FB,stroke:#4A78A8,stroke-width:1.5px
-    style JL fill:#FFF3CD,stroke:#C9A227,stroke-width:1.5px
+    subgraph FS[Folder structure]
+        IF[/Input folder/]:::input
+       
+    end
 
-    %% Customer flow
-    style CR fill:#EAF4EA,stroke:#5B8C5A
-    style CP fill:#EAF4EA,stroke:#5B8C5A
-    style CW fill:#DFF0D8,stroke:#4F8A4F
-    style CSL fill:#FDECEC,stroke:#C95A5A
-    style CFW fill:#FDECEC,stroke:#C95A5A
-    style CCSV fill:#F7E8E8,stroke:#B85C5C
+     AF[/Archive folder/]:::archive
+     FF[/Failure folder/]:::fail
 
-    %% Communication flow
-    style MR fill:#EAF4EA,stroke:#5B8C5A
-    style MP fill:#EAF4EA,stroke:#5B8C5A
-    style MW fill:#DFF0D8,stroke:#4F8A4F
-    style MSL fill:#FDECEC,stroke:#C95A5A
-    style MFW fill:#FDECEC,stroke:#C95A5A
-    style MCSV fill:#F7E8E8,stroke:#B85C5C
+    subgraph BATCH[Batch Processing]
+    IF -->|batch job picks up file| BJ["Batch step<br/>reader → processor → writer"]:::step
 
-    %% Subgraphs
-    style CUST fill:#F7FAFD,stroke:#7A9AB8,stroke-width:1.5px
-    style COMM fill:#F7FAFD,stroke:#7A9AB8,stroke-width:1.5px
+    BJ -->|file fully processed| MV["Move file to archive"]:::step
+    MV --> AF
+
+    BJ -->|record fails validation| SL[Skip Listener → Failed Item Writer]:::fail
+    SL --> FF
+    end
+    classDef api fill:#E6F1FB,stroke:#185FA5,color:#042C53
+    classDef input fill:#F1EFE8,stroke:#5F5E5A,color:#2C2C2A
+    classDef archive fill:#EAF3DE,stroke:#3B6D11,color:#173404
+    classDef fail fill:#FAECE7,stroke:#993C1D,color:#4A1B0C
+    classDef step fill:#EEEDFE,stroke:#534AB7,color:#26215C
 ```
 
 ### 3.2 Batch processing (customer & communication import)

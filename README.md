@@ -707,7 +707,7 @@ The following screens demonstrate the communication and operational capabilities
 
 The communication channel dashboard provides visibility into the channels configured and used by NotifyHub, including Email, WhatsApp, SMS, and Postal communication.
 
-![Communication Channels](scrennshots/channels.png)
+![Communication Channels](/screenshots/channels.png)
 
 ## Email Communication
 

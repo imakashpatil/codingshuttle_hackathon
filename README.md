@@ -719,7 +719,7 @@ Example of an email communication successfully generated and delivered to the cu
 
 Example of a WhatsApp communication successfully sent through NotifyHub.
 
-![WhatsApp Communication](/screenshots/whatsapp_message.png)
+![WhatsApp Communication](/screenshots/Whatsapp_message.png)
 
 ## Dead Letter Queue
 
@@ -729,16 +729,16 @@ When a communication cannot be successfully delivered after the configured retry
 
 Displays information related to failed communication requests.
 
-![Dead Letter Queue Information](/screenshots/DLQ_information.png)
+![Dead Letter Queue Information](/screenshots/DLQ_imformation.png)
 
 ### DLQ — WhatsApp Failures
 
 Shows WhatsApp communication failures captured in the Dead Letter Queue.
 
-![WhatsApp DLQ Errors](/screenshots/DLQ_for_whatsapp_errors.png)
+![WhatsApp DLQ Errors](/screenshots/DLQ_for%20whatsapp_errors.png)
 
 ## API Rate Limiting
 
 NotifyHub implements API rate limiting to control the number of requests accepted from an authenticated client within a configured time window.
 
-![API Rate Limiting](/screenshots/rate_limiter.png)
+![API Rate Limiting](/screenshots/Rate_limiter.png)

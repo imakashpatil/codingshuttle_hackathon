@@ -699,40 +699,46 @@ sms_template_documents  -->  sms_templates : sms_template_id
 whatsapp_template_documents  -->  document_template : document_template_id
 whatsapp_template_documents  -->  whats_app_template : whatsapp_template_id
 ```
-## 📸 Application Screenshots
+# NotifyHub — Communication & Operations
 
-### Communication Channels
+The following screens demonstrate the communication and operational capabilities of NotifyHub, including multi-channel delivery, failure handling, Dead Letter Queue management, and API rate limiting.
 
-Shows the different communication channels supported by NotifyHub.
+## Communication Channels
+
+The communication channel dashboard provides visibility into the channels configured and used by NotifyHub, including Email, WhatsApp, SMS, and Postal communication.
 
 ![Communication Channels](images/channels.png)
 
-### Email Communication
+## Email Communication
 
-Example of an email successfully received by the customer.
+Example of an email communication successfully generated and delivered to the customer.
 
-![Email Received](images/email_received.png)
+![Email Communication](images/email_received.png)
 
-### WhatsApp Communication
+## WhatsApp Communication
 
-Example of a WhatsApp communication sent through NotifyHub.
+Example of a WhatsApp communication successfully sent through NotifyHub.
 
-![WhatsApp Message]("images/whatsapp_message.png")
+![WhatsApp Communication](images/whatsapp_message.png)
 
-### Dead Letter Queue — Information
+## Dead Letter Queue
+
+When a communication cannot be successfully delivered after the configured retry attempts, it is moved to the Dead Letter Queue. The UI provides visibility into the failed communication, including its status, retry information, and failure details.
+
+### DLQ — Communication Information
 
 Displays information related to failed communication requests.
 
-![DLQ Information]("images/DLQ_information.png")
+![Dead Letter Queue Information](images/DLQ_information.png)
 
-### Dead Letter Queue — WhatsApp Errors
+### DLQ — WhatsApp Failures
 
 Shows WhatsApp communication failures captured in the Dead Letter Queue.
 
-![DLQ WhatsApp Errors]("images/DLQ_for_whatsapp_errors.png")
+![WhatsApp DLQ Errors](images/DLQ_for_whatsapp_errors.png)
 
-### Rate Limiter
+## API Rate Limiting
 
-Demonstrates the API rate-limiting mechanism implemented in NotifyHub.
+NotifyHub implements API rate limiting to control the number of requests accepted from an authenticated client within a configured time window.
 
-![Rate Limiter]("images/rate_limiter.png")
+![API Rate Limiting](images/rate_limiter.png)

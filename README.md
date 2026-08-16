@@ -144,20 +144,52 @@ Both import types share the same Spring Batch shape — a file reader that parse
 flowchart TD
     FM[File Manager<br/>file already placed] --> JL{Job Launcher<br/>detect import type}
 
-    JL -->|Customer import| CS["<b>Customer batch step</b><br/>─────────────<br/>File reader → parses XML into object<br/>Item processor → validates customer record<br/>Item writer → writes customer to DB"]:::step
-    JL -->|Communication import| MS["<b>Communication batch step</b><br/>─────────────<br/>File reader → parses XML into object<br/>Item processor → validates communication record<br/>Item writer → writes request to DB + outbox event"]:::step
+    JL -->|Customer import| CR[Item Reader<br/>reads customer XML]
+    JL -->|Communication import| MR[Item Reader<br/>reads communication XML]
 
-    CS -->|validation error| CSL[Skip Listener]:::fail
-    CSL --> CFW[Failed Item Writer]:::fail
-    CFW --> CCSV[(customer_failures.csv<br/>failure folder)]:::fail
+    subgraph CUST[Customer batch]
+        CR --> CP[Item Processor<br/>validate customer record]
+        CP -->|valid| CW[Item Writer<br/>write customer to DB]
+        CP -->|invalid, throws error| CSL[Skip Listener]
+        CSL --> CFW[Failed Item Writer]     
+    end
+    CFW --> CCSV[(customer_failures.csv<br/>failure folder)]
 
-    MS -->|validation error| MSL[Skip Listener]:::fail
-    MSL --> MFW[Failed Item Writer]:::fail
-    MFW --> MCSV[(communication_failures.csv<br/>failure folder)]:::fail
+    subgraph COMM[Communication batch]
+        MR --> MP[Item Processor<br/>validate communication record]
+        MP -->|valid| MW[Item Writer<br/>write communication request to DB]
+        MP -->|valid| MX[Outbox Event </br>for Publisher]
+        MP -->|invalid, throws error| MSL[Skip Listener]
+        MSL --> MFW[Failed Item Writer]
+        
+    end
 
-    classDef file fill:#E6F1FB,stroke:#185FA5,color:#042C53
-    classDef step fill:#EAF3DE,stroke:#3B6D11,color:#173404
-    classDef fail fill:#FAECE7,stroke:#993C1D,color:#4A1B0C
+    MFW --> MCSV[(communication_failures.csv<br/>failure folder)]
+
+    %% Main flow
+    style FM fill:#E8F1FB,stroke:#4A78A8,stroke-width:1.5px
+    style JL fill:#FFF3CD,stroke:#C9A227,stroke-width:1.5px
+
+    %% Customer flow
+    style CR fill:#EAF4EA,stroke:#5B8C5A
+    style CP fill:#EAF4EA,stroke:#5B8C5A
+    style CW fill:#DFF0D8,stroke:#4F8A4F
+    style CSL fill:#FDECEC,stroke:#C95A5A
+    style CFW fill:#FDECEC,stroke:#C95A5A
+    style CCSV fill:#F7E8E8,stroke:#B85C5C
+
+    %% Communication flow
+    style MR fill:#EAF4EA,stroke:#5B8C5A
+    style MP fill:#EAF4EA,stroke:#5B8C5A
+    style MW fill:#DFF0D8,stroke:#4F8A4F
+    style MSL fill:#FDECEC,stroke:#C95A5A
+    style MFW fill:#FDECEC,stroke:#C95A5A
+    style MCSV fill:#F7E8E8,stroke:#B85C5C
+
+    %% Subgraphs
+    style CUST fill:#F7FAFD,stroke:#7A9AB8,stroke-width:1.5px
+    style COMM fill:#F7FAFD,stroke:#7A9AB8,stroke-width:1.5px
+
 ```
 
 The communication XML follows a fixed shape: a `Communication` node wrapping the customer ID, and inside it a `CommunicationData` node carrying the communication definition code plus whatever fields the target templates need.

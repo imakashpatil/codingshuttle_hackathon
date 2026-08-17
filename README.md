@@ -737,6 +737,11 @@ Shows WhatsApp communication failures captured in the Dead Letter Queue.
 
 ![WhatsApp DLQ Errors](/screenshots/DLQ_for%20whatsapp_errors.png)
 
+## Generated PDF
+PDF Generated
+
+![API Rate Limiting](/screenshots/pdf_genrated.png)
+
 ## API Rate Limiting
 
 NotifyHub implements API rate limiting to control the number of requests accepted from an authenticated client within a configured time window.

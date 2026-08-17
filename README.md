@@ -18,6 +18,7 @@ An external system (ERP, core banking, CRM) sends one call — a customer ID plu
 6. [Consumer processing, dispatch, and retries](#6-consumer-processing-dispatch-and-retries)
 7. [API reference](#7-api-reference)
 8. [Database schema](#8-database-schema)
+9. [UI Images](#Notifyhub_Operations_images)
 
 ---
 
@@ -699,7 +700,7 @@ sms_template_documents  -->  sms_templates : sms_template_id
 whatsapp_template_documents  -->  document_template : document_template_id
 whatsapp_template_documents  -->  whats_app_template : whatsapp_template_id
 ```
-# NotifyHub — Communication & Operations
+# Notifyhub Operations images
 
 The following screens demonstrate the communication and operational capabilities of NotifyHub, including multi-channel delivery, failure handling, Dead Letter Queue management, and API rate limiting.
 

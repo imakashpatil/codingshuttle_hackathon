@@ -740,7 +740,8 @@ Shows WhatsApp communication failures captured in the Dead Letter Queue.
 ## Generated PDF
 PDF Generated
 
-![API Rate Limiting](/screenshots/pdf_genrated.png)
+![generated_pdf](/screenshots/pdf_genrated.png)
+![genrated reminder pdf](/screenshots/reminder_pdf.png)
 
 ## API Rate Limiting
 
